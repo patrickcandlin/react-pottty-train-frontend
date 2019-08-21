@@ -9,43 +9,79 @@ export default class App extends Component {
     number: "",
     notes: "",
     date: "",
-    where: "",
+    location: "",
   }
 
-  submitPotty = (event) => {
 
+
+  submitPotty = (event) => {
     event.preventDefault()
-    console.log('save this potty')
+    
+    const formData = new FormData(event.target)
+    console.log(event.target, formData.get("notes"))
     fetch(pottyUrl, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                number: 1,
-                notes: 'he was focusing on his blocks',
-                date: '2019/08/21',
-                where: 'carpet',
-            })})
+            body: JSON.stringify(
+              {
+                number: formData.get('number'),
+                notes: formData.get('notes'),
+                date: formData.get('date'),
+                location: formData.get('location'),
+              }
+            )
+      }
+    )
+    event.target.reset()
   }
+
+  handelChange = (event) => {
+    const { name, value } = event.target
+    this.setState({
+      [name]: value
+    })
+  }
+ 
   
   render() {
+    const { notes, date } = this.state
+   
     return (
+
       <div className="App">
         <h1>Albert's Potty tracker</h1>
-          <button>Potty!</button>
-          <button>Not.</button>
-          <form id="record-potty" onSubmit={this.submitPotty}>
+          <form id="record-potty" onSubmit={this.submitPotty} >
               <label>Number:</label>
-              <input type="number" name="email" placeholder="1 2"/>
-              <label>Notes</label>
-              <input type="text" name="first_name" placeholder="Notes?"/>
-              <label>Date</label>
-              <input type="date" name="birth_date"/>
+              {/* <input 
+                type="number" 
+                name="number" 
+                value={number}
+                placeholder="1 or 2"
+                onChange={this.handelChange}
+              /> */}
+              <input type="radio" name="number" value="1" onChange={this.handelChange}/> 1 
+              <input type="radio" name="number" value="2"onChange={this.handelChange}/> 2
+              <label>Notes:</label>
+              <input 
+                type="text" 
+                name="notes" 
+                value={notes}
+                placeholder="Notes?"
+                onChange={this.handelChange}
+              />
+              <label>Date:</label>
+              <input 
+                type="date" 
+                name="date"
+                value={date}
+                onChange={this.handelChange}
+              />
               <p>
-                  <label>Where</label>
-                  <input type="radio" name="where" value="Carpet"/>Carpet
-                  <input type="radio" name="where" value="Hardwood"/>Hardwood
-                  <input type="radio" name="where" value="Outside"/>Outside
-                  <input type="radio" name="where" value="Potty"/>Potty
+                  <label>Location:</label>
+                  <input type="radio" name="location" value="Carpet" onChange={this.handelChange}/>Carpet
+                  <input type="radio" name="location" value="Hardwood"onChange={this.handelChange}/>Hardwood
+                  <input type="radio" name="location" value="Outside"onChange={this.handelChange}/>Outside
+                  <input type="radio" name="location" value="Potty"onChange={this.handelChange}/>Potty
               </p>
               <input type="submit" value="SUBMIT"/>
         </form>
