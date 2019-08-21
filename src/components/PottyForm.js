@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 
 const pottyUrl = "https://albert-potty-train-backend.herokuapp.com/potties";
-const localUrl = "http://localhost:3000/potties"
+// const pottyUrl = "http://localhost:3000/potties"
 
 export default class PottyForm extends Component {
     state={
@@ -27,11 +27,8 @@ export default class PottyForm extends Component {
                   date: formData.get('date'),
                   location: formData.get('location'),
                 }
-              )
-        }
-
-
-      )
+                )
+             })
         this.setState( {
             number: "",
             notes: "",

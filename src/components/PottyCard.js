@@ -13,6 +13,9 @@ export default function (props){
         'carpet': carpet,
         'outside': outside
     }
+    const handleDelete = (event) => {
+        props.deletePotty(potty.id)
+    }
 
     return(
         <div>
@@ -21,7 +24,7 @@ export default function (props){
            <p>{potty.notes}</p>
            <p>{potty.date}</p> 
            <p>{potty.location}</p> 
-
+        <button onClick={handleDelete}>Delete</button>
         </div>
     )
 }
