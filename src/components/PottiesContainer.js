@@ -10,6 +10,5 @@ export default function PottiesContainer (props){
         <div className='potties'>
             {pottyCards}
         </div>   
-
     )
 }
