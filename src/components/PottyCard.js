@@ -17,13 +17,19 @@ export default class PottyCard extends Component {
         this.props.deletePotty(this.props.potty.id)
     }
 
+    closeUpdateForm = () => {
+        this.setState({
+            update: !this.state.update
+        })
+    }
+
     showUpdateFrom = (event) => {
         this.setState({
             update: !this.state.update
         })
     }
     render(){
-        const { potty } = this.props
+        const { potty, } = this.props
 
 
         return(
@@ -34,7 +40,10 @@ export default class PottyCard extends Component {
                     <p>{potty.location}</p> 
                     <button onClick={this.handleDelete}>Delete</button>
                     <button onClick={this.showUpdateFrom}>Update</button>
-                    { this.state.update && <UpdatePotty potty={potty} /> }
+                    { this.state.update && <UpdatePotty 
+                                                potty={potty} 
+                                                updatePotty={this.props.updatePotty}
+                                                closeUpdateForm={this.closeUpdateForm}/> }
                 
             </div>
         )   

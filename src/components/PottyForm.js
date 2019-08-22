@@ -39,7 +39,7 @@ export default class PottyForm extends Component {
   
     handelChange = (event) => {
       const { name, value } = event.target
-      this.setState({
+      this.setState({  
         [name]: value
       })
     }

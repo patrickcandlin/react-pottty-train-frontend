@@ -5,28 +5,45 @@ export default class UpdatePotty extends Component {
     constructor(props){
         super(props)
         this.state={
-            id: this.props.potty.id,
+            potty: {
+            id: props.potty.id,
             number: this.props.potty.number,
             notes: this.props.potty.notes,
             date: this.props.potty.date,
             location: this.props.potty.location,
+            }
           }
     }
 
-    handelChange = (event) => {
-        console.log('hello from update potty')
+    handleSubmit = (event) => {
+
+        const potty = this.state.potty
+        event.preventDefault()
+        this.props.updatePotty(potty)
+        this.props.closeUpdateForm()
     }
+
+    handelChange = (event) => {
+        const { name, value } = event.target
+        this.setState({
+            potty:{
+            ...this.state.potty,
+            [name]: value
+            }
+        })
+      }
     render(props) {
-        const { notes, date, number } = this.state 
-        console.log('hello from update potty',this. props)
+        const { notes, date, number, id } = this.state.potty 
+        console.log('hello from update potty',this.props, notes)
         return(
-            <form id="update-potty" onSubmit={this.submitPotty} >
+            <form id="update-potty" onSubmit={this.handleSubmit} >
                 <label>Number:</label>
+                <input type="hidden" name="id" value={id} />
                 <input 
                   type="text" 
                   name="number" 
                   value={number}
-                  placeholder="Notes?"
+                  placeholder="1 or 2"
                   onChange={this.handelChange}
                 />
                 <label>Notes:</label>
@@ -51,7 +68,7 @@ export default class UpdatePotty extends Component {
                     <input type="radio" name="location" value="Outside"onChange={this.handelChange}/>Outside
                     <input type="radio" name="location" value="Potty"onChange={this.handelChange}/>Potty
                 </p>
-                <input type="submit" value="Update"/>
+                <input type="submit" value="Save"/>
                 <button>Cancel</button>
           </form>
         )
