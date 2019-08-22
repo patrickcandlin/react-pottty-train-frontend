@@ -69,7 +69,6 @@ export default class UpdatePotty extends Component {
                     <input type="radio" name="location" value="Potty"onChange={this.handelChange}/>Potty
                 </p>
                 <input type="submit" value="Save"/>
-                <button>Cancel</button>
           </form>
         )
     }

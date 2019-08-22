@@ -30,21 +30,23 @@ export default class PottyCard extends Component {
     }
     render(){
         const { potty, } = this.props
-
+        const { update } = this.state
 
         return(
             <div className="potty-card">
-                    <p>{potty.number}</p>
-                    <p>{potty.notes}</p>
-                    <p>{potty.date}</p> 
-                    <p>{potty.location}</p> 
-                    <button onClick={this.handleDelete}>Delete</button>
-                    <button onClick={this.showUpdateFrom}>Update</button>
-                    { this.state.update && <UpdatePotty 
+                   {!update && <p>{potty.number}</p>}
+                   {!update && <p>{potty.notes}</p>}
+                   {!update && <p>{potty.date}</p>} 
+                   {!update && <p>{potty.location}</p>} 
+                   {!update && <button onClick={this.handleDelete}>Delete</button>}
+                    
+                                    { this.state.update && <UpdatePotty 
                                                 potty={potty} 
                                                 updatePotty={this.props.updatePotty}
                                                 closeUpdateForm={this.closeUpdateForm}/> }
-                
+                    {!update 
+                        ? <button onClick={this.showUpdateFrom}>Update</button> 
+                        : <button onClick={this.showUpdateFrom}>Close</button> }
             </div>
         )   
     }
