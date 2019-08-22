@@ -30,6 +30,26 @@ export default class App extends Component {
      }) 
   }
 
+  updatePotty = (potty) => {
+    let pottyId = potty.id 
+    console.log('update function called in app', potty.id, potty.number, potty.notes,)
+    fetch(pottyUrl+`/${potty.id}`,{
+      method: 'PATCH',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(
+        {
+          number: potty.number,
+          notes: potty.notes,
+          date: potty.date,
+          location: potty.location,
+        }
+        )
+    })
+    this.setState({
+      potties: [ potty, ...this.state.potties.filter(potty => potty.id !== pottyId)]
+   })
+  }
+
   addPotty = (potty) => {
     this.setState(
       {
@@ -43,13 +63,15 @@ export default class App extends Component {
     return (
 
       <div className="App">
-        <h1>Albert's Potty tracker</h1>
+        <h1>#2 Doo List</h1>
         <PottyForm 
           addPotty={this.addPotty}
         />
         <PottiesContainer 
           deletePotty={this.deletePotty}
-          potties={potties}/>
+          updatePotty={this.updatePotty}
+          potties={potties}
+          />
       </div>
     );
   }
