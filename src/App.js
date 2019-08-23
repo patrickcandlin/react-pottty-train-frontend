@@ -4,8 +4,8 @@ import PottiesContainer from "./components/PottiesContainer"
 import carphoto from "./components/images/IMG_1085.jpg"
 import './App.css';
 
-// const pottyUrl = "https://albert-potty-train-backend.herokuapp.com/potties"
-const pottyUrl = "http://localhost:3000/potties"
+const pottyUrl = "https://albert-potty-train-backend.herokuapp.com/potties"
+// const pottyUrl = "http://localhost:3000/potties"
 
 export default class App extends Component {
  
