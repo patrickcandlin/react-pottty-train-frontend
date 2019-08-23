@@ -65,38 +65,24 @@ export default class App extends Component {
 
       <div className="App">
         <div className="rsidebar-content">
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
-          <p>This is a example</p>
+          <h2>Potty Training Tips</h2>
         </div>
-        <h1>#2 Doo List 🚽</h1>
-        <img src={carphoto} alt="cute-car-photo" />
-        <PottiesContainer 
-          deletePotty={this.deletePotty}
-          updatePotty={this.updatePotty}
-          potties={potties}
-          />
-        <PottyForm 
-          addPotty={this.addPotty}
-        />
-      </div>
+          <img src={carphoto} alt="cute-car-photo" />
+        <main> 
+          <h1>#2 Doo List 🚽</h1>
+          <PottyForm 
+            addPotty={this.addPotty}
+            />
+          <PottiesContainer 
+            deletePotty={this.deletePotty}
+            updatePotty={this.updatePotty}
+            potties={potties}
+            />
+        </main>  
+          <section className='potty-training-tips'>
+            
+          </section>
+        </div>
     );
   }
 }

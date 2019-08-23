@@ -37,6 +37,7 @@ export default class UpdatePotty extends Component {
         console.log('hello from update potty',this.props, notes)
         return(
             <form id="update-potty" onSubmit={this.handleSubmit} >
+               <p>
                 <label>Number:</label>
                 <input type="hidden" name="id" value={id} />
                 <input 
@@ -45,7 +46,10 @@ export default class UpdatePotty extends Component {
                   value={number}
                   placeholder="1 or 2"
                   onChange={this.handelChange}
-                />
+                  />
+              </p> 
+              <p>
+
                 <label>Notes:</label>
                 <input 
                   type="text" 
@@ -53,14 +57,17 @@ export default class UpdatePotty extends Component {
                   value={notes}
                   placeholder="Notes?"
                   onChange={this.handelChange}
-                />
+                 />
+              </p>
+              <p>
                 <label>Date:</label>
                 <input 
                   type="date" 
                   name="date"
                   value={date}
                   onChange={this.handelChange}
-                />
+                  />
+              </p>
                 <p>
                     <label>Location:</label>
                     <input type="radio" name="location" value="Carpet" onChange={this.handelChange}/>Carpet

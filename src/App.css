@@ -13,48 +13,89 @@ body {
   justify-items: start;
   display: grid;
   grid-template-columns:  17% 17% 17% 17% 17% ;
-  grid-template-rows: auto;
-  grid-template-areas: "rsidebar header header header Lsidebar "
-                       "rsidebar main main main Lsidebar "
+  grid-template-rows: 10% auto;
+  grid-template-areas:"nav nav nav nav nav"
+                      "rsidebar main main main Lsidebar "
+                       "rsidebar main main main . "
                        "rsidebar footer footer footer . ";
+}
+
+main {
+  grid-area: main;
 }
 img {
   width: 100%;
   grid-area: Lsidebar;
+  padding: 4px;
+  border-radius: 50% ;
 }
 .potties {
-  grid-area: main;
   padding-bottom: 1rem;
 }
 .potties-form {
-  grid-area: footer;
+
+}
+
+.potty-card {
+  border-bottom: solid;
+  border-width: thin;
+  border-color: lightgray;
 }
 
 h1 {
   font-family: droid-sans, sans-serif;
   font-weight: 400;
   font-style: normal;
-  grid-area: header;
+  grid-area: nav;
 }
 
 .rsidebar-content{
   padding-left: 2rem;
   grid-area: rsidebar;
 }
-
-button, input {
-  color: brown;
-  border-width: thin;
-  background: none;
-  border-style: solid;
-	cursor: pointer;
-	display: inline-block;
-	margin: 5px 3px;
+button, input[type=submit] {
+    display: inline-block;
+    border: none;
+    padding: .5rem 1rem;
+    margin: 1px;
+    text-decoration: none;
+    background: #0069ed;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 5px;
 }
 
-input[type=radio]{
+button:hover,
+button:focus {
+    background: #0053ba;
+}
+
+
+input[type=radio] {
   font-size: 1.35em;
   padding: 25px;
-  margin: 10px auto;
+  margin-left: 10px;
   cursor: pointer;
+}
+
+input[type=submit]{
+  margin-bottom: 7px;
+}
+
+
+form {
+  border: solid;
+  border-width: thin;
+  border-radius: 5px;
+  border-color: lightgray;
+}
+ form p {
+ margin-left: 10px;
 }
