@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import PottyForm from "./components/PottyForm"
 import PottiesContainer from "./components/PottiesContainer"
+import carphoto from "./components/images/IMG_1085.jpg"
 import './App.css';
 
-const pottyUrl = "https://albert-potty-train-backend.herokuapp.com/potties"
-// const pottyUrl = "http://localhost:3000/potties"
+// const pottyUrl = "https://albert-potty-train-backend.herokuapp.com/potties"
+const pottyUrl = "http://localhost:3000/potties"
 
 export default class App extends Component {
  
@@ -63,15 +64,38 @@ export default class App extends Component {
     return (
 
       <div className="App">
-        <h1>#2 Doo List</h1>
-        <PottyForm 
-          addPotty={this.addPotty}
-        />
+        <div className="rsidebar-content">
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+          <p>This is a example</p>
+        </div>
+        <h1>#2 Doo List 🚽</h1>
+        <img src={carphoto} alt="cute-car-photo" />
         <PottiesContainer 
           deletePotty={this.deletePotty}
           updatePotty={this.updatePotty}
           potties={potties}
           />
+        <PottyForm 
+          addPotty={this.addPotty}
+        />
       </div>
     );
   }

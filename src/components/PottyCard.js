@@ -34,19 +34,18 @@ export default class PottyCard extends Component {
 
         return(
             <div className="potty-card">
-                   {!update && <p>{potty.number}</p>}
-                   {!update && <p>{potty.notes}</p>}
-                   {!update && <p>{potty.date}</p>} 
-                   {!update && <p>{potty.location}</p>} 
-                   {!update && <button onClick={this.handleDelete}>Delete</button>}
-                    
-                                    { this.state.update && <UpdatePotty 
-                                                potty={potty} 
-                                                updatePotty={this.props.updatePotty}
-                                                closeUpdateForm={this.closeUpdateForm}/> }
+                    {  this.state.update && <UpdatePotty 
+                                potty={potty} 
+                                updatePotty={this.props.updatePotty}
+                                closeUpdateForm={this.closeUpdateForm}/> }
+                    {!update && <button onClick={this.handleDelete}>Delete</button>}
                     {!update 
                         ? <button onClick={this.showUpdateFrom}>Update</button> 
                         : <button onClick={this.showUpdateFrom}>Close</button> }
+                   {!update && <span>{`${potty.number} - Notes: ${potty.notes} -  location: ${potty.location}`} </span>}
+                   {!update && <span>{potty.date}</span>} 
+                   {!update && <span></span>} 
+                    
             </div>
         )   
     }

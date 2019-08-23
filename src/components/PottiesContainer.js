@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PottyCard from './PottyCard'
 
 export default function PottiesContainer (props){
@@ -8,7 +8,6 @@ export default function PottiesContainer (props){
                 deletePotty={props.deletePotty} 
                 updatePotty={props.updatePotty}
                 potty={potty}
-
              />
     } )
     return(
