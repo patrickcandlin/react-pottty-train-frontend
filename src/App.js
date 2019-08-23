@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import PottyForm from "./components/PottyForm"
 import PottiesContainer from "./components/PottiesContainer"
+import carphoto from "./components/images/IMG_1085.jpg"
 import './App.css';
 
-const pottyUrl = "https://albert-potty-train-backend.herokuapp.com/potties"
-// const pottyUrl = "http://localhost:3000/potties"
+// const pottyUrl = "https://albert-potty-train-backend.herokuapp.com/potties"
+const pottyUrl = "http://localhost:3000/potties"
 
 export default class App extends Component {
  
@@ -63,16 +64,25 @@ export default class App extends Component {
     return (
 
       <div className="App">
-        <h1>#2 Doo List</h1>
-        <PottyForm 
-          addPotty={this.addPotty}
-        />
-        <PottiesContainer 
-          deletePotty={this.deletePotty}
-          updatePotty={this.updatePotty}
-          potties={potties}
-          />
-      </div>
+        <div className="rsidebar-content">
+          <h2>Potty Training Tips</h2>
+        </div>
+          <img src={carphoto} alt="cute-car-photo" />
+        <main> 
+          <h1>#2 Doo List 🚽</h1>
+          <PottyForm 
+            addPotty={this.addPotty}
+            />
+          <PottiesContainer 
+            deletePotty={this.deletePotty}
+            updatePotty={this.updatePotty}
+            potties={potties}
+            />
+        </main>  
+          <section className='potty-training-tips'>
+            
+          </section>
+        </div>
     );
   }
 }
