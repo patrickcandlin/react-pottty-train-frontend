@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import UpdatePotty from "./UpdatePotty"
-import pottyImage from "./images/potty.jpeg"
-import hardwood from "./images/hardwood.jpeg"
-import carpet from "./images/carpet.jpeg"
-import outside from "./images/outside.jpeg"
+
 
 
 export default class PottyCard extends Component {

@@ -1,30 +1,30 @@
 @import url("https://use.typekit.net/zpu1oiv.css");
 
-body {
-  display: grid;
-  grid-template: auto;
-  grid-template-areas: ". main .";
-}
-
-.App {
-  grid-area: main;
-  padding: 1em;
+#root {
   font-family: droid-sans, sans-serif;
-  justify-items: start;
+  justify-items: center;
+  align-content: space-between;
   display: grid;
-  grid-template-columns:  17% 17% 17% 17% 17% ;
+  grid-template-columns:  auto% auto% auto% auto% auto% ;
   grid-template-rows: 10% auto;
-  grid-template-areas:"nav nav nav nav nav"
-                      "rsidebar main main main Lsidebar "
-                       "rsidebar main main main . "
-                       "rsidebar footer footer footer . ";
+  grid-template-areas:"nav nav nav nav Lsidebar"
+                      ". main main main Lsidebar "
+                      ". main main main . "
+                      ". footer footer footer . "; 
 }
 
+nav {
+  grid-area: nav;
+  display: flex;
+  margin: 1rem;
+  margin-bottom: 3rem;
+}
 main {
   grid-area: main;
 }
 img {
-  width: 100%;
+  min-height: 100px;
+  height: 50%;
   grid-area: Lsidebar;
   padding: 4px;
   border-radius: 50% ;
@@ -87,6 +87,7 @@ input[type=radio] {
 
 input[type=submit]{
   margin-bottom: 7px;
+  margin-left: 5px
 }
 
 
