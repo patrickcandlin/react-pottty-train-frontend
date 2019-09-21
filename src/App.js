@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import NavBar from "./components/NavBar.js"
 import Journal from "./Journal"
 import Tips from "./Tips"
-import carphoto from "./components/images/IMG_1085.jpg"
+
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import './App.css';
+import { format } from "url";
 
 // const pottyUrl = "https://albert-potty-train-backend.herokuapp.com/potties"
 const pottyUrl = "http://localhost:3090/potties"
@@ -83,22 +85,13 @@ export default class App extends Component {
     
     return (
       <Router> 
-  
-        <div className="nav">
-          <h1>#2 Doo List <span role='img-potty'>🚽</span></h1>
-         <Link className="link" to="/"> Journal </Link>
-         <Link className="link" to="/tips/"> Potty Training Tips </Link>
-        </div>
-          
-          <img src={carphoto} alt="cute-car-kids" />
-        <main>
+        <NavBar />
+        <main className="container">
           <Switch>
             <Route path="/" exact component={ this.getJournal }/>
             <Route path="/tips/" component={ this.getTips} />
           </Switch>
         </main>  
-      
-     
     </Router>
     );
   }
