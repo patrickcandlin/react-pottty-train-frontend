@@ -38,10 +38,10 @@ export default class PottyCard extends Component {
                    {!update && <span>{`${potty.number} - Notes: ${potty.notes} -  location: ${potty.location}`} </span>}
                    {!update && <span>{potty.date}</span>} 
                    {!update && <span></span>} 
-                    <p>{!update && <button onClick={this.handleDelete}>Delete</button>}
+                    <p>{!update && <button className="btn btn-info"  onClick={this.handleDelete}>Delete</button>}
                     {!update 
-                        ? <button onClick={this.showUpdateFrom}>Update</button> 
-                        : <button onClick={this.showUpdateFrom}>Close</button> }</p>
+                        ? <button className="btn btn-info" onClick={this.showUpdateFrom}>Update</button> 
+                        : <button className="btn btn-info" onClick={this.showUpdateFrom}>Close</button> }</p>
                     
             </div>
         )   
