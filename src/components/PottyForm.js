@@ -3,8 +3,8 @@ import { directive } from "@babel/types";
 
 
 
-// const pottyUrl = "https://albert-potty-train-backend.herokuapp.com/potties";
-const pottyUrl = "http://localhost:3090/potties"
+const pottyUrl = "https://albert-potty-train-backend.herokuapp.com/potties";
+// const pottyUrl = "http://localhost:3090/potties"
 
 export default class PottyForm extends Component {
     state={

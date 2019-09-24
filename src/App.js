@@ -7,8 +7,8 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import './App.css';
 import { format } from "url";
 
-// const pottyUrl = "https://albert-potty-train-backend.herokuapp.com/potties"
-const pottyUrl = "http://localhost:3090/potties"
+const pottyUrl = "https://albert-potty-train-backend.herokuapp.com/potties"
+// const pottyUrl = "http://localhost:3090/potties"
 
 export default class App extends Component {
  
