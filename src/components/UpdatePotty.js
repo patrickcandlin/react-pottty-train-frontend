@@ -34,7 +34,6 @@ export default class UpdatePotty extends Component {
       }
     render(props) {
         const { notes, date, number, id } = this.state.potty 
-        console.log('hello from update potty',this.props, notes)
         return(
             <form id="update-potty" onSubmit={this.handleSubmit} >
                <p>
@@ -75,7 +74,11 @@ export default class UpdatePotty extends Component {
                     <input type="radio" name="location" value="Outside"onChange={this.handelChange}/>Outside
                     <input type="radio" name="location" value="Potty"onChange={this.handelChange}/>Potty
                 </p>
-                <input type="submit" value="Save"/>
+                <input 
+                  className="btn btn-info"  
+                  type="submit" 
+                  value="Save"
+                  />
           </form>
         )
     }

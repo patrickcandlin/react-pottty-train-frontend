@@ -1,16 +1,20 @@
 import React, { Component } from "react";
-import PottyForm from "./components/PottyForm"
-import PottiesContainer from "./components/PottiesContainer"
-import carphoto from "./components/images/IMG_1085.jpg"
-import './App.css';
+import NavBar from "./components/NavBar.js"
+import Journal from "./Journal"
+import Tips from "./Tips"
 
-const pottyUrl = "https://albert-potty-train-backend.herokuapp.com/potties"
-// const pottyUrl = "http://localhost:3000/potties"
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import './App.css';
+import { format } from "url";
+
+// const pottyUrl = "https://albert-potty-train-backend.herokuapp.com/potties"
+const pottyUrl = "http://localhost:3090/potties"
 
 export default class App extends Component {
  
   state={
     potties: [],
+    tips: [],
   }
   
   componentDidMount(){
@@ -19,6 +23,14 @@ export default class App extends Component {
       .then(json => this.setState(
         {potties: json}
       ))
+
+    fetch(`http://localhost:3000/tips`)
+      .then(response => response.json())
+      .then(result => this.setState({
+          tips: result
+              }
+          )
+      )
   }
 
   deletePotty = (pottyId) => {
@@ -58,31 +70,30 @@ export default class App extends Component {
       }
     )
   }
-
-  render() {
-    const { potties } = this.state
-    return (
-
-      <div className="App">
-        <div className="rsidebar-content">
-          <h2>Potty Training Tips</h2>
-        </div>
-          <img src={carphoto} alt="cute-car-photo" />
-        <main> 
-          <h1>#2 Doo List 🚽</h1>
-          <PottyForm 
+  getTips = () => {
+    return <Tips tips={this.state.tips} />
+  }
+  getJournal = () => {
+    return <Journal 
             addPotty={this.addPotty}
-            />
-          <PottiesContainer 
             deletePotty={this.deletePotty}
             updatePotty={this.updatePotty}
-            potties={potties}
-            />
+            potties={this.state.potties}
+          />
+  }
+  render() {
+    
+    return (
+      <Router> 
+        <header></header>
+        <NavBar />
+        <main className="container">
+          <Switch>
+            <Route path="/" exact component={ this.getJournal }/>
+            <Route path="/tips/" component={ this.getTips} />
+          </Switch>
         </main>  
-          <section className='potty-training-tips'>
-            
-          </section>
-        </div>
+    </Router>
     );
   }
 }

@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import UpdatePotty from "./UpdatePotty"
-import pottyImage from "./images/potty.jpeg"
-import hardwood from "./images/hardwood.jpeg"
-import carpet from "./images/carpet.jpeg"
-import outside from "./images/outside.jpeg"
+
 
 
 export default class PottyCard extends Component {
@@ -41,10 +38,10 @@ export default class PottyCard extends Component {
                    {!update && <span>{`${potty.number} - Notes: ${potty.notes} -  location: ${potty.location}`} </span>}
                    {!update && <span>{potty.date}</span>} 
                    {!update && <span></span>} 
-                    <p>{!update && <button onClick={this.handleDelete}>Delete</button>}
+                    <p>{!update && <button className="btn"  onClick={this.handleDelete}>Delete</button>}
                     {!update 
-                        ? <button onClick={this.showUpdateFrom}>Update</button> 
-                        : <button onClick={this.showUpdateFrom}>Close</button> }</p>
+                        ? <button className="btn" onClick={this.showUpdateFrom}>Edit</button> 
+                        : <button className="btn" onClick={this.showUpdateFrom}>Close</button> }</p>
                     
             </div>
         )   
