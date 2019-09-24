@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { directive } from "@babel/types";
 
 
 
@@ -49,23 +50,27 @@ export default class PottyForm extends Component {
       const { notes, date } = this.state
      
       return (
-  
+         
             <form onSubmit={this.submitPotty} >
               <label>Number:</label>
+              <div 
+              className="input-group-text"
+              >
               <input  
                 type="radio" 
                 name="number"   
                 value="1" 
                 onChange={this.handelChange}
-                /> 1 
+                /> 1 or
+                  <span> </span>
               <input  
                 type="radio" 
                 name="number"   
                 value="2"
                 onChange={this.handelChange}
                 /> 2
-
-
+              </div>
+              <br></br>
               <label >Notes:</label>
               <input 
                 type="text" 
@@ -73,8 +78,9 @@ export default class PottyForm extends Component {
                 value={notes}
                 placeholder="Notes?"
                 onChange={this.handelChange}
-                className="form-control"
+                className="form-control-inline"
                 />
+              <br></br>
               <label>Date:</label>
               <input 
                 type="date" 
@@ -82,7 +88,7 @@ export default class PottyForm extends Component {
                 value={date}
                 onChange={this.handelChange}
                 />
-
+                <br></br>
               <label>Location:</label>
               <input 
                 type="radio" 
@@ -108,12 +114,13 @@ export default class PottyForm extends Component {
                 value="Potty"
                 onChange={this.handelChange}
                 />Potty
+              <br></br>
               <input 
                 type="submit" 
                 value="SUBMIT"
-                className="btn btn-info"
+                className="btn"
                 />
-          </form>
+            </form>
       );
     }
   }

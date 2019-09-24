@@ -85,6 +85,7 @@ export default class App extends Component {
     
     return (
       <Router> 
+        <header></header>
         <NavBar />
         <main className="container">
           <Switch>
